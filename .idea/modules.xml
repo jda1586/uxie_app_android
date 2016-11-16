@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Uxie.iml" filepath="$PROJECT_DIR$/Uxie.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uxie_app_android.iml" filepath="$PROJECT_DIR$/uxie_app_android.iml" />
     </modules>
   </component>
 </project>

@@ -99,6 +99,7 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
         ListPlaces.add(new PlaceItem("Local3", "Descripcion Local 3 detalles referecias, que ofrece, direccion, otros", "r3", "$ $ $", 9.2f));
         ListPlaces.add(new PlaceItem("Local4", "Descripcion Local 4 detalles referecias, que ofrece, direccion, otros", "r4", "$", 5.3f));
         ListPlaces.add(new PlaceItem("Local5", "Descripcion Local 5 detalles referecias, que ofrece, direccion, otros", "r5", "$ $ $", 8.4f));
+        ListPlaces.add(new PlaceItem("Local5", "Descripcion Local 5 detalles referecias, que ofrece, direccion, otros", "r3", "$ $ $ $", 6.4f));
 
         PlaceAdapter companiesAdapter = new PlaceAdapter(ListPlaces, CategoriaActivity.this);
         companiesAdapter.setClickTableCell(this);

@@ -34,4 +34,9 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:9.4.0'
     compile 'com.google.android.gms:play-services-gcm:9.4.0'
     compile 'com.google.android.gms:play-services:9.4.0'
+
+    compile('com.facebook.android:facebook-android-sdk:4.5.0') {
+        exclude module: 'bolts-android'
+        exclude module: 'support-v4'
+    }
 }

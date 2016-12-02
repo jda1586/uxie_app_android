@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_crear_cuenta"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="mx.uxie.app.uxie.CrearCuentaActivity"
+    tools:showIn="@layout/activity_crear_cuenta"
+    android:background="@color/md_white_1000">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+
+        android:ems="10"
+        android:hint="Usuario"
+        android:textColor="?attr/colorPrimary"
+        android:textColorHint="@color/md_grey_500"
+        android:id="@+id/editText3"
+        android:layout_alignTop="@+id/imageView26"
+        android:layout_toEndOf="@+id/imageView26"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:theme="@style/Theme.App.Base" />
+
+    <Button
+        android:text="CONTINUAR"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btn_continue"
+        android:background="@color/colorPrimary" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="contraseña"
+        android:textColor="?attr/colorPrimary"
+        android:textColorHint="@color/md_grey_500"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:theme="@style/Theme.App.Base"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/editText3"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

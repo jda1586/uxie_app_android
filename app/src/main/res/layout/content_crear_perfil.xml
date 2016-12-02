@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_crear_perfil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="mx.uxie.app.uxie.CrearPerfilActivity"
+    tools:showIn="@layout/activity_crear_perfil"
+    android:background="@color/md_white_1000">
+
+    <ImageView
+        app:srcCompat="@color/cardview_dark_background"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/imageView26"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="96dp"
+        android:layout_height="96dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+
+        android:hint="Telefono"
+        android:textColor="?attr/colorPrimary"
+        android:textColorHint="@color/md_grey_500"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:layout_alignTop="@+id/imageView26"
+        android:layout_toEndOf="@+id/imageView26"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="8dp"
+        android:theme="@style/Theme.App.Base" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Correo electronico"
+        android:textColor="?attr/colorPrimary"
+        android:textColorHint="@color/md_grey_500"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:layout_alignBottom="@+id/imageView26"
+        android:layout_toEndOf="@+id/imageView26"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:theme="@style/Theme.App.Base" />
+
+    <Button
+        android:text="CONTINUAR"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btn_continuar"
+        android:background="@color/colorPrimary" />
+
+</RelativeLayout>

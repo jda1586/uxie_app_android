@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_acount_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="mx.uxie.app.uxie.AcountMenuActivity"
+    tools:showIn="@layout/activity_acount_menu"
+    android:background="@color/white">
+
+    <ImageView
+        app:srcCompat="@mipmap/uxie_logo_verde"
+        android:layout_marginTop="30dp"
+        android:id="@+id/imageView27"
+        android:layout_height="96dp"
+        android:layout_width="96dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_marginTop="28dp"
+        android:id="@+id/editText"
+        android:layout_below="@+id/imageView27"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="usuario"
+        android:theme="@style/Theme.App.Base"
+        android:textColor="?attr/colorPrimary"
+        android:textColorHint="@color/md_grey_500" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="contraseña"
+        android:theme="@style/Theme.App.Base"
+        android:textColor="?attr/colorPrimary"
+        android:textColorHint="@color/md_grey_500" />
+
+    <LinearLayout
+        android:layout_below="@+id/editText2"
+        android:id="@+id/faceboolLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp">
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_loginFB"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_Register"
+        android:layout_marginBottom="10dp"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/btn_sesion"
+        android:textColor="@color/colorPrimary"
+        android:text="Registrarme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="INICIAR SESION"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btn_sesion"
+        android:background="@color/colorPrimary" />
+
+</RelativeLayout>

@@ -10,5 +10,6 @@
     <string name="title_activity_place">PlaceActivity</string>
     <string name="title_activity_login_facebook">Login con Facebook</string>
     <string name="facebook_app_id">1686964934927406</string>
+    <string name="LoadData">Cargando informacion</string>
 
 </resources>

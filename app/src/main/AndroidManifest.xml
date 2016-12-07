@@ -23,29 +23,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--
+
         <activity
             android:name="com.facebook.FacebookActivity"
             android:label="@string/title_activity_login_facebook"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
+<!--
         <provider
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider1686964934927406"
             android:exported="true" />
-
+-->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
--->
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAIGey2DXWqVRpLjoAvub1NbpNj0sIK940" />
         <activity
             android:name=".CategoriasActivity"
-            android:label="@string/app_name"
+            android:label=""
             android:theme="@style/AppTheme" />
         <activity
             android:name=".CategoriaActivity"

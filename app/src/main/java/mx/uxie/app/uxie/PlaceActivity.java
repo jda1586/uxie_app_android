@@ -36,6 +36,7 @@ public class PlaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tv_place_name = (TextView) findViewById(R.id.tv_place_name);
         tv_description = (TextView) findViewById(R.id.tv_description);
@@ -52,6 +53,7 @@ public class PlaceActivity extends AppCompatActivity {
         setPagerView();
         PopulateList();
     }
+
 
     public void setPagerView() {
 
@@ -164,6 +166,7 @@ public class PlaceActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         if (id == android.R.id.home) {
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

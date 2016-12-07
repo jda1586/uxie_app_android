@@ -21,6 +21,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -53,7 +55,7 @@ import mx.uxie.app.uxie.items.PlaceItem;
 
 
 public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener, LocationListener, ClickTableCell,RetunDataEvent {
+        GoogleApiClient.OnConnectionFailedListener, LocationListener, ClickTableCell, RetunDataEvent, GoogleMap.OnCameraChangeListener {
 
     private String category_name = "";
     private GoogleApiClient mGoogleApiClient;
@@ -79,13 +81,13 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
         setSupportActionBar(toolbar);
         category_title = (TextView) findViewById(R.id.category_title);
         Recycler_places = (RecyclerView) findViewById(R.id.Recycler_places);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         try {
             Bundle bundle = getIntent().getExtras();
             category_name = bundle.getString("categoria_Nombre");
             category_title.setText(category_name);
         } catch (Exception e) {
         }
-
 
 
         if (Build.VERSION.SDK_INT >= 23) {
@@ -99,9 +101,9 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
         } else {
             getUserLocation();
         }
-        progressDialogData = ProgressDialog.show(this, getString(R.string.LoadData),
+        progressDialogData = ProgressDialog.show(this, "Uxie",
                 getString(R.string.LoadData), true);
-       // progressDialogData.setCancelable(true);
+        // progressDialogData.setCancelable(true);
         progressDialogData.show();
         //PopulateList();
 
@@ -158,7 +160,7 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
 
                             communicationDB = new CommunicationDB(CategoriaActivity.this);
                             communicationDB.OnReturnData(CategoriaActivity.this);
-                            communicationDB.shops(mLatLng.latitude,mLatLng.longitude,category_name);
+                            communicationDB.shops(mLatLng.latitude, mLatLng.longitude, category_name);
                             CenterMap();
 
                         } else {
@@ -171,7 +173,7 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
 
                             communicationDB = new CommunicationDB(CategoriaActivity.this);
                             communicationDB.OnReturnData(CategoriaActivity.this);
-                            communicationDB.shops(mLatLng.latitude,mLatLng.longitude,category_name);
+                            communicationDB.shops(mLatLng.latitude, mLatLng.longitude, category_name);
 
                             CenterMap();
                             //  mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLng, 10.0f));
@@ -246,7 +248,7 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
             Andares = new LatLng(mLatLng.latitude, mLatLng.longitude);
         } catch (Exception e) {
         }
-
+        googleMapV.setMyLocationEnabled(true);
         googleMapV.moveCamera(CameraUpdateFactory.newLatLngZoom(Andares, 14.5f));
         googleMapV.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
@@ -278,7 +280,40 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
         for (MarkerOptions mO : markerList) {
             googleMapV.addMarker(mO);
         }
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            return;
+        }
+        googleMapV.setMyLocationEnabled(true);
         googleMapV.moveCamera(CameraUpdateFactory.newLatLngZoom(Center, 14.5f));
+        googleMapV.setOnCameraChangeListener(this);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    @Override
+    public void onCameraChange(CameraPosition position) {
+        float maxZoom = 17.0f;
+        float minZoom = 14.0f;
+
+        if (position.zoom > maxZoom) {
+            googleMapV.animateCamera(CameraUpdateFactory.zoomTo(maxZoom));
+        } else if (position.zoom < minZoom) {
+            googleMapV.animateCamera(CameraUpdateFactory.zoomTo(minZoom));
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

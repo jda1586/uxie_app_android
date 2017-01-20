@@ -51,9 +51,8 @@ public class CategoriasActivity extends AppCompatActivity
         setContentView(R.layout.activity_categorias);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.el1);
-        toolbar.setNavigationIcon(R.mipmap.el1);
+
+
 
         rl_category_a1 = (RelativeLayout) findViewById(R.id.rl_category_a1);
         rl_category_a2 = (RelativeLayout) findViewById(R.id.rl_category_a2);

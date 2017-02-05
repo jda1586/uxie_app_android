@@ -22,6 +22,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -88,7 +90,7 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
             category_title.setText(category_name);
         } catch (Exception e) {
         }
-
+        StatusBar(getResources().getColor(R.color.status));
 
         if (Build.VERSION.SDK_INT >= 23) {
             if (ActivityCompat.checkSelfPermission(CategoriaActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION)
@@ -107,6 +109,15 @@ public class CategoriaActivity extends AppCompatActivity implements OnMapReadyCa
         progressDialogData.show();
         //PopulateList();
 
+    }
+
+    public void StatusBar(int Color) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(Color);
+        }
     }
 
     public void PopulateList(List<PlaceItem> ListPlacess) {

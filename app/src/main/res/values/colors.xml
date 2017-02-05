@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#007F17</color>
-    <color name="colorPrimaryDark">#006612</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#eeeeee</color>
+    <color name="status">#007F17</color>
+
 
     <array name="reds">
         <item>@color/md_red_500</item>

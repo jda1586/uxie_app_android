@@ -7,6 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +23,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -52,7 +55,7 @@ public class CategoriasActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        StatusBar(getResources().getColor(R.color.status));
 
         rl_category_a1 = (RelativeLayout) findViewById(R.id.rl_category_a1);
         rl_category_a2 = (RelativeLayout) findViewById(R.id.rl_category_a2);
@@ -97,6 +100,15 @@ public class CategoriasActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    public void StatusBar(int Color) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(Color);
+        }
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -131,27 +143,27 @@ public class CategoriasActivity extends AppCompatActivity
 
         switch (v.getId()){
             case R.id.rl_category_a1:
-                intent.putExtra("categoria_Nombre","Bebidas");
+                intent.putExtra("categoria_Nombre","Automotriz");
                 startActivity(intent);
                 break;
             case R.id.rl_category_a2:
-                intent.putExtra("categoria_Nombre","Comidas");
+                intent.putExtra("categoria_Nombre","Salud");
                 startActivity(intent);
                 break;
             case R.id.rl_category_b1:
-                intent.putExtra("categoria_Nombre","Salones");
+                intent.putExtra("categoria_Nombre","Belleza");
                 startActivity(intent);
                 break;
             case R.id.rl_category_b2:
-                intent.putExtra("categoria_Nombre","Talleres");
+                intent.putExtra("categoria_Nombre","Comida");
                 startActivity(intent);
                 break;
             case R.id.rl_category_c1:
-                intent.putExtra("categoria_Nombre","Nocturno");
+                intent.putExtra("categoria_Nombre","Entretenimiento");
                 startActivity(intent);
                 break;
             case R.id.rl_category_c2:
-                intent.putExtra("categoria_Nombre","Consultorios");
+                intent.putExtra("categoria_Nombre","Varios");
                 startActivity(intent);
                 break;
 
